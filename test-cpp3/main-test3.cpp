@@ -1,16 +1,8 @@
 #include <bits/stdc++.h>
-//#include <iostream>
-//#include <algorithm>
-//#include <utility>
-//#include <vector>
-//#include <type_traits>
+
 
 using namespace std;
 
-//template <typename ...Args>
-//struct Counter{
-//
-//};
 
 template <typename ...Args>
 struct Counter;
@@ -35,13 +27,38 @@ struct Counter2<T> {
     enum {value = 1};
 };
 
-int main() {
-
+void test1() {
     Counter<int, long, int> c1;
     cout << c1.value << endl;
 
     Counter2<int, long, int> c2;
     cout << c2.value << endl;
+}
 
+struct A {
+    vector<int> v;
+    A(){}
+    A(const vector<int>& o) {
+        cout << "A ctor const" << endl;
+        v = o;
+    }
+
+    A(vector<int>&& o) {
+        cout << "A ctor move" << endl;
+        v = move(o);
+    }
+
+};
+void test2() {
+    vector<int> v(30);
+
+    A a(v);
+    A aa(vector<int>(25));
+
+}
+
+int main() {
+    test1();
+    test2();
     return 0;
 }
