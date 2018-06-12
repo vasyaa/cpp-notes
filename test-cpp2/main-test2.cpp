@@ -1,3 +1,4 @@
+#include "bits.h"
 #include "futures.h"
 #include "sqrt.h"
 #include "segment_tree.h"
@@ -14,5 +15,6 @@ int main() {
 //    templates2::test();
 //    segment_tree::test();
 //    mysqrt::test();
-    futures::test();
+//    futures::test();
+    bits::test();
 }
