@@ -32,6 +32,15 @@ uint64_t set_bit_to_val(uint64_t num, int n, int val) {
     return num;
 }
 
+void print_bits_backward(uint64_t num) {
+   for(int bit=0;bit<(sizeof(uint64_t) * 8); bit++)
+   {
+      std::cout << (int)(num & 0x01);
+      num = num >> 1;
+   }
+   std::cout  << std::endl;
+}
+
 inline void test() {
     uint64_t num = 2;
 
@@ -45,6 +54,10 @@ inline void test() {
     num = set_bit_to_val(num, 2, 1);
     assert(num == 4);
     std::cout << "Ok" << std::endl;
+
+    print_bits_backward(5);
+    print_bits_backward(-5);
+
 }
 
 }
