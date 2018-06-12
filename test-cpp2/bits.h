@@ -28,7 +28,7 @@ bool is_bit_set(uint64_t num, int n) {
 }
 
 uint64_t set_bit_to_val(uint64_t num, int n, int val) {
-    num ^= (-n ^ num) & (1UL << val);
+    num ^= (-val ^ num) & (1UL << n);
     return num;
 }
 
@@ -36,10 +36,14 @@ inline void test() {
     uint64_t num = 2;
 
     assert(is_bit_set(num, 1));
+
     num = 3;
     num = clear_bit(num, 0);
     assert(is_bit_set(num, 0) == 0);
 
+    num = 0;
+    num = set_bit_to_val(num, 2, 1);
+    assert(num == 4);
     std::cout << "Ok" << std::endl;
 }
 
